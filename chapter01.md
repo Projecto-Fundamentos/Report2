@@ -186,7 +186,8 @@ De esta manera, la startup busca contribuir a la modernización de la actividad 
 </table>
 
 ## 1.2. Solution Profile
-### 1.2.1 Antecedentes y problemática
+### 1.2.1 Nombre del producto
+#### 1.2.2 Antecedentes y problemática
 La ganadería es una de las actividades económicas y de sustento alimentario más antiguas y cruciales del mundo. Históricamente, la gestión de las unidades ganaderas se ha basado en procesos tradicionales y controles estrictamente manuales. El monitoreo del ganado en grandes extensiones de terreno siempre ha presentado enormes dificultades logísticas, requiriendo patrullajes físicos diarios por parte de los operarios para verificar visualmente el estado de salud, la ubicación y el comportamiento de cada animal.
 
 En el contexto actual de la industria agropecuaria, el auge de tecnologías disruptivas ha abierto las puertas a la ganadería inteligente (Smart Farming). El uso de sensores de bajo costo, redes inalámbricas de largo alcance (como LoRaWAN), plataformas en la nube y dispositivos móviles permite capturar parámetros biométricos y de comportamiento en tiempo real. Esto permite transformar un modelo de gestión reactivo donde un problema médico o una pérdida de animal se detecta cuando ya es demasiado tarde en un modelo predictivo y de monitoreo preventivo constante.
@@ -238,14 +239,14 @@ Para asegurar la viabilidad técnica, el cumplimiento normativo y el rigor acad�
 **Restricciones de Diseño de Dispositivos IoT:** El diseño del circuito y simulación del collar/arete inteligente debe ser elaborado obligatoriamente mediante herramientas autorizadas como Cirkit Designer o Wokwi, modelando de manera realista la comunicación con el Edge API.
 **Restricciones Normativas y de Responsabilidad Ética:** La solución debe incorporar en los pies de página (footer) de la Landing Page y de las aplicaciones un acceso explícito a los Términos y Condiciones del Servicio, estructurados en estricta conformidad con los códigos de ética para ingeniería de software establecidos por la ACM/IEEE y el Colegio de Ingenieros del Perú (CIP).
 **Restricciones de Gestión y Control de Código:** El control de versiones debe ser administrado en un repositorio público dentro de una organización en GitHub, empleando de manera rigurosa el flujo de trabajo de GitFlow, el estándar de mensajes conventional commits y versionamiento semántico.
-### 1.2.2 Lean UX Process.  
+### 1.2.3 Lean UX Process.  
 En esta sección se detalla el desarrollo y aplicación del Lean UX Process para nuestra solución digital orientada al sector ganadero. Este proceso nos permite alinear la visión del negocio con las necesidades reales de los ganaderos, partiendo de la formulación de un enunciado de problema unificado, seguido de la declaración de creencias (supuestos o assumptions), y culminando en hipótesis accionables que validaremos a lo largo del ciclo de vida del proyecto.
-#### 1.2.2.1. Lean UX Problem Statements.
+#### 1.2.3.1. Lean UX Problem Statements.
 De acuerdo con las pautas de diseño para iniciativas completamente nuevas (Brand new initiatives), se ha elaborado un único Problem Statement consolidado en inglés que abarca las necesidades de nuestros segmentos objetivo de ganaderos:
 
 The current state of extensive livestock farming and cattle tracking has focused mainly on manual pasture inspections, physical branding, and retrospective paper records, which are highly labor-intensive, error-prone, and scale poorly . What existing products/services fail to address is the lack of real-time, continuous physiological telemetry (such as body temperature and activity patterns) combined with precise GPS geolocation integrated into an affordable, user-friendly digital ecosystem . Our product/service will address this gap by providing an end-to-end IoT solution consisting of smart collars and ear tags that automatically transmit biotelemetry data to a central RESTful API, integrated with an interactive Web and Mobile application that visualizes livestock status and generates predictive alerts . Our initial focus will be medium-scale extensive cattle ranchers in South America . We’ll know we are successful when we see ranch managers checking the mobile application daily, responding to critical health alerts in under an hour, and reducing overall cattle loss and mortality rates by 25% within the first six months of deployment.
 
-#### 1.2.2.2. Lean UX Assumptions.
+#### 1.2.3.2. Lean UX Assumptions.
 Para guiar el diseño centrado en el usuario, hemos estructurado nuestras creencias en cinco categorías de supuestos (Assumptions), redactados como enunciados declarativos de fe y no como meras preguntas de discusión .
 
 A. Business Assumptions (Supuestos de Negocio)
@@ -276,7 +277,7 @@ Creemos que un sistema de notificaciones automáticas en tiempo real vía aplica
 Creemos que un panel de análisis (Analytics Dashboard) interactivo en la aplicación web permitirá al ganadero visualizar métricas agrupadas, promedios de salud de la manada y mapas de calor de pastoreo.
 Creemos que la implementación de un modo sin conexión (Offline Mode) en la aplicación móvil que almacene datos localmente y los sincronice al recuperar señal garantizará la continuidad operativa en el campo.  
 
-#### 1.2.2.3. Lean UX Hypothesis Statements.
+#### 1.2.3.3. Lean UX Hypothesis Statements.
 Tomando como base los supuestos de características definidos anteriormente, se redacta una declaración de hipótesis por cada Feature Assumption, utilizando estrictamente la estructura formal en inglés determinada por el marco de trabajo :
 
 Hypothesis 1 (Biometric & GPS Tracking):
@@ -292,7 +293,7 @@ Hypothesis 4 (Offline Synchronization):
 We believe we will achieve high daily active usage (DAU) and platform trust in rural areas If Ranch Workers Attain continuous access to cattle profiles and the ability to register field actions without cellular coverage With a mobile application offline synchronization mode.
 
 
-#### 1.2.2.4. Lean UX Canvas.
+#### 1.2.3.4. Lean UX Canvas.
 A continuación, se plasma el Lean UX Canvas de la startup ganadera, integrando los bloques estratégicos para validar de forma iterativa nuestro modelo de negocio digital:
 
 <table>
