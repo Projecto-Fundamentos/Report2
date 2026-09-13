@@ -23,8 +23,8 @@
     </tr>
   </thead>
   <tbody>
-      <td style="border: 1px solid #888; padding: 8px;">U202320442</td>
-      <td style="border: 1px solid #888; padding: 8px;">Giorgio Marzouk Awad Vargas</td>
+      <td style="border: 1px solid #888; padding: 8px;">U202417693</td>
+      <td style="border: 1px solid #888; padding: 8px;">Alexander Auden Aliaga Ocampo</td>
     </tr>
     <tr>
       <td style="border: 1px solid #888; padding: 8px;">U202321510</td>
