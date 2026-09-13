@@ -15,7 +15,7 @@ De esta manera, la startup busca contribuir a la modernización de la actividad 
 | Integrantes | Foto | Descripción del perfil |
 |---|---|---|
 | Seminario Castillo,Diego Vicente<br>U202412951 | <img src="images/members/diego.jpeg" width="80" alt="Foto de Diego"> | Estudiante de Ingeniería de Software con interés en el análisis, diseño y desarrollo de soluciones tecnológicas. Se caracteriza por su organización, capacidad de adaptación y disposición para colaborar en equipo. |
-| -----nombre-----<br>------codigo---- | Foto pendiente | ----descripcion |
+| Aliaga Ocampo, Alexander Auden<br>U202417693 | <img src="images/members/AlexanderAliagaOcampo.jpg" width="80" alt="Foto de Alexander Auden Aliaga Ocampo"> | Estudiante de Ingeniería de Software con interés en el diseño de soluciones tecnológicas y la arquitectura de software. Se caracteriza por su compromiso, aprendizaje continuo y colaboración en equipo durante el desarrollo de proyectos. |
 | Romero Meza, Jhimy Pool<br>U202321510 | <img src="images/members/JhimyRomeroMeza.jpg" width="80" alt="Foto de Jhimy"> | Estudiante de Ingeniería de Software (5mo ciclo). Se destaca por su responsabilidad, compromiso y disposición constante para colaborar. Cuenta con conocimientos previos en tecnología y en el desarrollo de proyectos, demostrando iniciativa y capacidad de aprendizaje autónomo. |
 
 ## 1.2. Solution Profile
