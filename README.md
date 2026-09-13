@@ -50,6 +50,22 @@
 | Versión | Fecha   | Autor     | Descripción de modificación |
 |---------|---------|-----------|-----------------------------|
 | v1.0.0  | 9/12/26 | SmartFarm | TB1                         |
+
+# Student Outcome ABET
+
+El curso contribuye al cumplimiento del *Student Outcome ABET*:
+
+**ABET - EAC - Student Outcome 7: Aprendizaje continuo y autónomo**
+
+**Criterio:** capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
+
+En el siguiente cuadro se describen las acciones y conclusiones del equipo durante el **TB1**, que sustentan el logro del Student Outcome.
+
+| Criterio específico | Acciones realizadas - TB1 | Conclusiones |
+|---|---|---|
+| *Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software.* | **Alexander Auden Aliaga Ocampo**<br><br>Investigó y aplicó conceptos de *Requirements Elicitation*, *Needfinding*, User Personas, User Task Matrix y técnicas de entrevistas para estructurar los requisitos de SmartFarm.<br><br>**Jhimy Pool Romero Meza**<br><br>Profundizó en Lean UX, Scenario Mapping y diseño centrado en el usuario para relacionar los problemas del sector ganadero con funcionalidades de la solución.<br><br>**Diego Vicente Seminario Castillo**<br><br>Actualizó conocimientos sobre IoT aplicado al monitoreo ganadero, telemetría, alertas y trazabilidad para sustentar la propuesta tecnológica de SmartFarm. | Durante el TB1, el equipo incorporó y aplicó conocimientos de investigación de usuarios, Lean UX e IoT para definir una solución coherente con las necesidades de propietarios, operarios de campo y veterinarios. |
+| *Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.* | **Alexander Auden Aliaga Ocampo**<br><br>Contrastó la propuesta con competidores y registró hallazgos de entrevistas para identificar mejoras y requisitos pendientes.<br><br>**Jhimy Pool Romero Meza**<br><br>Participó en la revisión y refinamiento de los artefactos de análisis, identificando la importancia de validar continuamente las decisiones de diseño.<br><br>**Diego Vicente Seminario Castillo**<br><br>Analizó los cambios tecnológicos y operativos que afectan a la ganadería inteligente para reconocer nuevas necesidades de aprendizaje en el proyecto. | El equipo reconoce que el proyecto requiere aprendizaje continuo: los requisitos, la conectividad rural y las tecnologías IoT deben revisarse y validarse de forma iterativa antes de cada avance. |
+
 # Tabla de contenidos
 # CONTENIDO
 
