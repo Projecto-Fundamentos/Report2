@@ -110,7 +110,82 @@ Este segmento proporciona el sustento técnico-científico del dominio de salud.
 11. Dado que trabajamos bajo un enfoque de ingeniería de software estructurado, ¿qué tan importante es para usted que la información recopilada por ICHU se pueda exportar en formatos estándar o integrar mediante servicios web seguros (APIs) con laboratorios clínicos o sistemas de registro oficial del Estado?
 
 ### 2.2.2. Registro de entrevistas
+
+Se registraron nueve entrevistas semiestructuradas, tres por cada segmento objetivo. Los registros integran el perfil declarado por cada participante, la evidencia audiovisual disponible y los hallazgos que se emplearon para validar las necesidades del ecosistema ICHU.
+
+#### Evidencia audiovisual de las entrevistas
+
+![Captura de la entrevista 1](images/CHAPTER02/INTERVIEWS/entrevista1.png)
+
+*Figura 2.1. Evidencia audiovisual de una entrevista remota realizada para el proceso de Needfinding.*
+
+![Captura de la entrevista 2](images/CHAPTER02/INTERVIEWS/entrevista2.png)
+
+*Figura 2.2. Evidencia audiovisual de entrevista por videollamada.*
+
+![Captura de la entrevista 3](images/CHAPTER02/INTERVIEWS/entrevista3.png)
+
+*Figura 2.3. Evidencia audiovisual de entrevista remota con participante del estudio.*
+
+![Captura de la entrevista 4](images/CHAPTER02/INTERVIEWS/entrevista4.png)
+
+*Figura 2.4. Evidencia audiovisual de entrevista por videollamada.*
+
+#### Segmento 1 – Medianos y Grandes Ganaderos (Propietarios y Administradores)
+
+| N° | Datos demográficos y perfil | Evidencia audiovisual | Resumen de respuestas y requisitos de software ICHU |
+|---|---|---|---|
+| **E1.1** | **Nombre:** Carlos Ugarte Vílchez<br>**Edad:** 52 años<br>**Residencia:** Majes-Siguas, Arequipa<br>**Ocupación:** Administrador ganadero de 250 cabezas | Entrevista remota; duración aproximada: 14 min 45 s. | **Perfil:** pragmático y analítico.<br>**Tecnología:** laptop Windows 11 y smartphone Samsung S23 Ultra.<br>**Problema:** pérdida anual estimada del 4–6 % del hato por neumonía bovina detectada tardíamente y controles manuales en papel.<br>**Validación:** requiere dashboard web con métricas térmicas en tiempo real y reportes exportables. |
+| **E1.2** | **Nombre:** Carmen Rosa Benavides<br>**Edad:** 47 años<br>**Residencia:** Lurín, Lima; fundo en Huancayo<br>**Ocupación:** Administradora y socia ganadera | Entrevista remota; duración aproximada: 13 min 10 s. | **Perfil:** administra parte de la operación a distancia.<br>**Tecnología:** MacBook Pro, iPhone 15 Pro Max e iPad Pro.<br>**Problema:** falta de trazabilidad de vacunación y peso; dificultad para auditar actividades de campo.<br>**Validación:** valora roles y permisos para restringir la información según el tipo de usuario. |
+| **E1.3** | **Nombre:** Fernando Pflucker<br>**Edad:** 58 años<br>**Residencia:** Baños del Inca, Cajamarca<br>**Ocupación:** Empresario agropecuario | Entrevista remota; duración aproximada: 12 min 15 s. | **Perfil:** conservador y preocupado por la seguridad en colindancias.<br>**Tecnología:** PC Windows 10 y smartphone Xiaomi Redmi Note 12.<br>**Problema:** abigeato y extravío de animales; reporta la pérdida de ocho reses el último año.<br>**Validación:** prioriza geocercas y alertas de salida de perímetro. |
+
+#### Segmento 2 – Capataces y Operarios Ganaderos de Campo
+
+| N° | Datos demográficos y perfil | Evidencia audiovisual | Resumen de respuestas y requisitos de software ICHU |
+|---|---|---|---|
+| **E2.1** | **Nombre:** Esteban Quispe Huamán<br>**Edad:** 41 años<br>**Residencia:** Chivay, Arequipa<br>**Ocupación:** Capataz general de campo | Entrevista remota; duración aproximada: 11 min 40 s. | **Perfil:** operativo; pasa más de diez horas diarias en campo.<br>**Tecnología:** smartphone Motorola Moto G54; no usa computadora para su labor diaria.<br>**Problema:** invierte de tres a cuatro horas buscando vacas preñadas o enfermas y no cuenta con señal en quebradas.<br>**Validación:** exige modo offline y sincronización automática al recuperar cobertura. |
+| **E2.2** | **Nombre:** Mateo Condori Mamani<br>**Edad:** 34 años<br>**Residencia:** Mantaro, Junín<br>**Ocupación:** Operario de pastoreo y control | Entrevista remota; duración aproximada: 10 min 25 s. | **Perfil:** abierto al uso de herramientas digitales.<br>**Tecnología:** smartphone Samsung Galaxy A14.<br>**Problema:** las fichas de papel se dañan por la lluvia o se extravían.<br>**Validación:** solicita botones amplios, alto contraste para sol directo y búsqueda rápida por código de arete. |
+| **E2.3** | **Nombre:** Faustino Rivas Gutiérrez<br>**Edad:** 49 años<br>**Residencia:** Baños del Inca, Cajamarca<br>**Ocupación:** Vaquero y asistente de campo | Entrevista remota; duración aproximada: 9 min 50 s. | **Perfil:** tradicionalista y centrado en el cuidado del ganado.<br>**Tecnología:** smartphone Android de gama de entrada.<br>**Problema:** dificultad para avisar con rapidez al veterinario ante emergencias nocturnas.<br>**Validación:** requiere alertas sonoras y código de colores claro para identificar anomalías. |
+
+#### Segmento 3 – Médicos Veterinarios y Consultores de Salud Animal
+
+| N° | Datos demográficos y perfil | Evidencia audiovisual | Resumen de respuestas y requisitos de software ICHU |
+|---|---|---|---|
+| **E3.1** | **Nombre:** Valeria Mendoza Saldaña<br>**Edad:** 36 años<br>**Residencia:** Arequipa<br>**Ocupación:** Médica veterinaria consultora | Entrevista remota; duración aproximada: 15 min 30 s. | **Perfil:** científica y rigurosa; asesora a seis estancias ganaderas.<br>**Tecnología:** laptop Lenovo, iPad Air e iPhone 14.<br>**Problema:** la falta de registro continuo reduce la efectividad diagnóstica.<br>**Validación:** necesita una vista clínica con tendencias de temperatura, expedientes y exportación de información. |
+| **E3.2** | **Nombre:** Jorge Linares Roldán<br>**Edad:** 45 años<br>**Residencia:** Huancayo, Junín<br>**Ocupación:** Veterinario reproduccionista | Entrevista remota; duración aproximada: 14 min 10 s. | **Perfil:** especialista en inseminación artificial.<br>**Tecnología:** laptop Dell Latitude y smartphone Samsung Galaxy S22.<br>**Problema:** se pierden ventanas de inseminación por celos nocturnos no detectados.<br>**Validación:** valora alertas generadas desde acelerometría para identificar celo nocturno. |
+| **E3.3** | **Nombre:** Beatriz Paredes Arce<br>**Edad:** 31 años<br>**Residencia:** Cajamarca<br>**Ocupación:** Investigadora y veterinaria | Entrevista remota; duración aproximada: 12 min 50 s. | **Perfil:** interesada en analítica aplicada a la ganadería.<br>**Tecnología:** MacBook Air, iPhone, RStudio y QGIS.<br>**Problema:** datos fragmentados y falta de estándares entre laboratorios y estancias.<br>**Validación:** requiere una API REST documentada para integrar información con sistemas autorizados. |
+
 ### 2.2.3. Análisis de entrevistas
+
+El análisis cualitativo y cuantitativo de las nueve entrevistas permitió identificar necesidades comunes y diferencias relevantes entre propietarios, operarios de campo y profesionales veterinarios. Los resultados respaldan la construcción de los User Personas y la priorización de requisitos para ICHU.
+
+#### Análisis del Segmento 1: Propietarios y administradores
+
+- **Muestra:** tres entrevistados.
+- **100 %** utiliza computadoras o laptops para actividades administrativas y smartphones para mantenerse informado fuera de la estancia.
+- **Dos de tres** reportaron pérdidas económicas relevantes asociadas con detección tardía de enfermedades, extravío o abigeato.
+- **100 %** requiere un dashboard web con alertas priorizadas, visualización de indicadores y exportación de reportes.
+- **Requisito derivado:** la plataforma web debe centralizar inventario, alertas, geocercas, historial de animales y controles de acceso por rol.
+
+#### Análisis del Segmento 2: Capataces y operarios de campo
+
+- **Muestra:** tres entrevistados.
+- **100 %** utiliza teléfonos Android como dispositivo principal durante las labores de campo.
+- **100 %** enfrenta conectividad nula o intermitente en zonas de pastoreo extensivo.
+- **Dos de tres** señalaron dificultades de lectura bajo sol directo y la necesidad de una interacción de pocos pasos.
+- **Requisito derivado:** la aplicación móvil debe operar offline, preservar los registros localmente, sincronizarlos al recuperar conexión y emplear alertas visuales y sonoras legibles.
+
+#### Análisis del Segmento 3: Médicos veterinarios y consultores
+
+- **Muestra:** tres entrevistados.
+- **100 %** combina laptops con dispositivos móviles o tabletas para revisar casos clínicos.
+- **100 %** destacó la importancia de contar con historiales continuos para reducir el retraso en el diagnóstico.
+- **Dos de tres** valoraron las notificaciones de celo y la capacidad de analizar tendencias de actividad y temperatura.
+- **Requisito derivado:** ICHU debe ofrecer una vista clínica por bovino, historial trazable, tendencias biométricas y una API REST documentada para integraciones autorizadas.
+
+#### Conclusión del análisis
+
+Las entrevistas confirman que ICHU debe combinar una plataforma web para la gestión y el análisis, una aplicación móvil enfocada en la atención de campo y un núcleo de servicios que consolide telemetría, alertas e historial. La solución deberá mantener trazabilidad de cada incidencia, permitir decisiones oportunas y adaptarse a escenarios de conectividad limitada.
 ## 2.3. Needfinding
 En esta sección se presentan los principales artefactos de Needfinding elaborados a partir de los segmentos objetivo, la problemática identificada y los supuestos planteados durante el Lean UX Process. Estos artefactos permiten representar de manera inicial las necesidades, objetivos, comportamientos y principales puntos de dolor de los usuarios del ecosistema ICHU IoT.
 
