@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" version="24.7.17">
-  <diagram id="ichu-seguridad" name="ICHU - Seguridad">
+  <diagram id="ichu-seguridad-corregida" name="ICHU - Seguridad corregida">
     <mxGraphModel dx="1900" dy="1250" grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1900" pageHeight="1250" math="0" shadow="0">
       <root>
         <mxCell id="0" />
@@ -17,38 +17,38 @@
         <mxCell id="n6" value="RUTA DISPOSITIVO" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#F7FAFC;strokeColor=#A5BBCE;strokeWidth=2;dashed=1;dashPattern=10 6;fontColor=#53748C;fontSize=20;fontStyle=1;align=left;verticalAlign=top;spacing=15;" vertex="1" parent="1">
           <mxGeometry x="55" y="620" width="1780" height="390" as="geometry" />
         </mxCell>
-        <mxCell id="n7" value="Usuario&#10;Propietario, capataz o veterinario" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#0C5E9C;strokeColor=#084777;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
-          <mxGeometry x="105" y="280" width="260" height="120" as="geometry" />
+        <mxCell id="n7" value="" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0C4A83;strokeColor=#0C4A83;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="206.0" y="280" width="58" height="58" as="geometry" />
         </mxCell>
-        <mxCell id="n8" value="Cliente web / móvil&#10;Sesión y cola local" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#438BC8;strokeColor=#23689C;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n8" value="Usuario&#10;Propietario, capataz o veterinario" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#0C4A83;strokeColor=#0C4A83;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="105" y="310" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="n9" value="Cliente web / móvil&#10;Sesión y cola local" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#1B6DB8;strokeColor=#11508D;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="420" y="280" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n9" value="Identidad&#10;Token y revocación" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#438BC8;strokeColor=#23689C;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n10" value="Identidad&#10;Token y revocación" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#1B6DB8;strokeColor=#11508D;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="735" y="280" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n10" value="Autorización API&#10;Rol + estancia + recurso + acción" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#438BC8;strokeColor=#23689C;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n11" value="Autorización API&#10;Rol + estancia + recurso + acción" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#1B6DB8;strokeColor=#11508D;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="1050" y="280" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n11" value="Operación permitida&#10;Inventario, alerta o salud" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#3A7BB5;strokeColor=#1D5A92;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n12" value="Operación permitida&#10;Inventario, alerta o salud" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#3A7BB5;strokeColor=#1D5A92;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="1410" y="280" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n12" value="Collar IoT&#10;Credencial propia" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#929BA5;strokeColor=#687684;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n13" value="Collar IoT&#10;Credencial propia" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#777777;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="105" y="735" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n13" value="Canal cifrado&#10;Pasarela y enlace" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#929BA5;strokeColor=#687684;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n14" value="Canal cifrado&#10;Pasarela y enlace" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#999999;strokeColor=#777777;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="420" y="735" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n14" value="Ingesta IoT&#10;Credencial y asociación vigente" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#438BC8;strokeColor=#23689C;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n15" value="Ingesta IoT&#10;Credencial y asociación vigente" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#1B6DB8;strokeColor=#11508D;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="735" y="735" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n15" value="Validación&#10;Formato, secuencia y tiempo" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#438BC8;strokeColor=#23689C;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n16" value="Validación&#10;Formato, secuencia y tiempo" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#1B6DB8;strokeColor=#11508D;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="1050" y="735" width="260" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="n16" value="Lectura aceptada&#10;Persistencia idempotente" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#3A7BB5;strokeColor=#1D5A92;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
+        <mxCell id="n17" value="Lectura aceptada&#10;Persistencia idempotente" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#3A7BB5;strokeColor=#1D5A92;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;spacing=10;" vertex="1" parent="1">
           <mxGeometry x="1410" y="735" width="260" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="n17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n7" target="n8">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="n18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n8" target="n9">
           <mxGeometry relative="1" as="geometry" />
@@ -59,7 +59,7 @@
         <mxCell id="n20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n10" target="n11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="n21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n12" target="n13">
+        <mxCell id="n21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n11" target="n12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="n22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n13" target="n14">
@@ -71,8 +71,14 @@
         <mxCell id="n24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n15" target="n16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="n25" value="Control transversal: TLS · mínimo privilegio · auditoría sin secretos · fecha y origen de cada lectura" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#486985;fontSize=20;fontStyle=0;align=left;verticalAlign=middle;" vertex="1" parent="1">
+        <mxCell id="n25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#486985;strokeWidth=2;endArrow=block;endFill=1;fontColor=#24435E;fontSize=15;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="n16" target="n17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="n26" value="Control transversal: TLS · mínimo privilegio · auditoría sin secretos · fecha y origen de cada lectura" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#486985;fontSize=20;fontStyle=0;align=left;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="85" y="1060" width="1700" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="n27" value="Las dos rutas usan credenciales distintas y validaciones del lado del servidor" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#486985;fontSize=18;fontStyle=0;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="85" y="1155" width="1700" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

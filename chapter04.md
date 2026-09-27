@@ -46,29 +46,29 @@ Flujo de contexto: **dispositivo  pasarela/adaptador  telemetr¡a  reglas  al
 
 ### 4.1.4. Approach Driven ViewPoints Diagrams
 
-La **vista funcional de contenedores** (figura 4.2) descompone el l¡mite de ICHU mostrado en la figura 4.1. Es un dise¤o propuesto: los nombres de tecnolog¡as indican el tipo de interfaz o almacenamiento, no un proveedor ni un despliegue ya decidido. Los clientes web y m¢vil acceden a la API por HTTPS; el m¢vil conserva comandos pendientes y los sincroniza con identificadores idempotentes. La pasarela transmite lecturas al proceso de ingesta, que autentica, normaliza, deduplica y persiste antes de publicar el evento aceptado. La API consume dichos eventos para aplicar reglas y actualizar alertas; consulta y modifica los datos relacionales, solicita avisos al proveedor externo y conserva referencias a archivos de evidencia. El servidor comprueba rol y pertenencia a estancia en cada operaci¢n.
+La **vista funcional de contenedores** (figura 4.2) descompone el l¡mite de ICHU mostrado en la figura 4.1. Es un dise¤o propuesto: los nombres de tecnolog¡as indican el tipo de interfaz o almacenamiento, no un proveedor ni un despliegue ya decidido. Los clientes web y m¢vil acceden a la API por HTTPS; el m¢vil conserva comandos pendientes y los sincroniza con identificadores idempotentes. La pasarela transmite lecturas al proceso de ingesta, que autentica, normaliza y deduplica. La ingesta guarda la lectura y el evento pendiente en una misma transacci¢n; un despachador de *outbox* publica despu‚s el evento aceptado en la cola durable. La API consume el evento para aplicar reglas y actualizar alertas; consulta y modifica los datos relacionales, solicita avisos al proveedor externo y conserva referencias a archivos de evidencia. El servidor comprueba rol y pertenencia a estancia en cada operaci¢n.
 
 ![Vista funcional de contenedores C4 de ICHU con actores, clientes, API, ingesta IoT, base de datos, cola y servicios externos](images/CHAPTER04/container-view-vp.png)
 
-*Figura 4.2. Vista de contenedores de ICHU (C4, nivel 2). Elaboraci¢n propia en Visual Paradigm. Las flechas se¤alan el flujo principal de informaci¢n; los m¢dulos indicados dentro de la API comparten un contenedor l¢gico en el MVP. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=4&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/container-view-vp.drawio).*
+*Figura 4.2. Vista de contenedores de ICHU (C4, nivel 2). Elaboraci¢n propia en Visual Paradigm. La flecha de base relacional a cola representa el despachador de outbox; los m¢dulos indicados dentro de la API comparten un contenedor l¢gico en el MVP. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=9&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/container-view-vp.drawio).*
 
 La **vista de flujo de datos** (figura 4.3) ordena la lectura en dos trayectos visuales: pasos 1-5 de izquierda a derecha y 6-10 de derecha a izquierda. La alerta registra qu‚ lectura y versi¢n de regla la originaron; la notificaci¢n y la intervenci¢n humana son posteriores. La franja inferior distingue los comandos capturados offline en el m¢vil de la telemetr¡a enviada por el sensor.
 
 ![Flujo de datos de ICHU desde el sensor hasta la atenci¢n y el historial, con ruta offline](images/CHAPTER04/data-flow-view-vp.png)
 
-*Figura 4.3. Flujo de datos de una alerta en ICHU. Elaboraci¢n propia en Visual Paradigm. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=5&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/data-flow-view-vp.drawio).*
+*Figura 4.3. Flujo de datos de una alerta en ICHU. Elaboraci¢n propia en Visual Paradigm. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=10&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/data-flow-view-vp.drawio).*
 
 La **vista de despliegue** (figura 4.4) separa campo, conectividad, plataforma y servicios externos. Se muestran procesos y almacenes l¢gicos, sin fijar a£n una nube. Ante un corte de enlace, el dispositivo o el m¢vil conserva elementos pendientes y reintenta; la alerta persistida no depende de que el proveedor de avisos est‚ disponible.
 
 ![Vista de despliegue propuesta de ICHU con campo, red, plataforma y servicios externos](images/CHAPTER04/deployment-view-vp.png)
 
-*Figura 4.4. Vista de despliegue propuesta de ICHU. Elaboraci¢n propia en Visual Paradigm. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=6&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/deployment-view-vp.drawio).*
+*Figura 4.4. Vista de despliegue propuesta de ICHU. Elaboraci¢n propia en Visual Paradigm. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=11&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/deployment-view-vp.drawio).*
 
 La **vista de seguridad** (figura 4.5) separa dos rutas de confianza: personas con sesi¢n y roles, y dispositivos con credenciales propias. Una sesi¢n v lida no concede acceso indiscriminado: la API comprueba rol, estancia, recurso y acci¢n. La ingesta IoT comprueba credencial, formato, secuencia y asociaci¢n vigente antes de aceptar una lectura. Ambos recorridos generan trazas de auditor¡a sin exponer secretos.
 
 ![Vista de seguridad de ICHU con autenticaci¢n humana y de dispositivos, autorizaci¢n y auditor¡a](images/CHAPTER04/security-view-vp.png)
 
-*Figura 4.5. Vista de seguridad de ICHU. Elaboraci¢n propia en Visual Paradigm. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=7&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/security-view-vp.drawio).*
+*Figura 4.5. Vista de seguridad de ICHU. Elaboraci¢n propia en Visual Paradigm. [Abrir diagrama editable](https://online.visual-paradigm.com/w/sooshvme/diagrams/#diagram:workspace=sooshvme&proj=0&id=12&import=draw.io&type=BlockDiagram) ú [Archivo fuente editable](images/CHAPTER04/security-view-vp.drawio).*
 
 | Vista | Elementos y relaciones representados | Pregunta |
 |---|---|---|
