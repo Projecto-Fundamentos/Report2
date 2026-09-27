@@ -1,0 +1,153 @@
+---
+title: ICHU - modelo entidad-relacion logico propuesto
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#eaf3ff'
+    primaryTextColor: '#19324a'
+    primaryBorderColor: '#4481bc'
+    lineColor: '#486985'
+    tertiaryColor: '#f7fafc'
+    fontFamily: 'Arial'
+---
+erDiagram
+    ESTANCIA {
+        uuid estancia_id PK
+        string nombre
+        string estado
+    }
+    USUARIO {
+        uuid usuario_id PK
+        string nombre
+        string correo
+        string estado
+    }
+    MEMBRESIA {
+        uuid membresia_id PK
+        uuid estancia_id FK
+        uuid usuario_id FK
+        string rol
+        string estado
+    }
+    LOTE {
+        uuid lote_id PK
+        uuid estancia_id FK
+        string nombre
+    }
+    BOVINO {
+        uuid bovino_id PK
+        uuid estancia_id FK
+        uuid lote_id FK
+        string identificador
+        string estado
+    }
+    DISPOSITIVO {
+        uuid dispositivo_id PK
+        string identificador_externo
+        string estado
+    }
+    ASOCIACION_DISPOSITIVO {
+        uuid asociacion_id PK
+        uuid dispositivo_id FK
+        uuid bovino_id FK
+        datetime desde
+        datetime hasta
+    }
+    LECTURA_TELEMETRIA {
+        uuid lectura_id PK
+        uuid dispositivo_id FK
+        uuid bovino_id FK
+        datetime capturada_en
+        int secuencia
+        json magnitudes_posicion_calidad
+    }
+    GEOCERCA {
+        uuid geocerca_id PK
+        uuid estancia_id FK
+        uuid lote_id FK
+        int version
+        geometry poligono
+    }
+    REGLA_ALERTA {
+        uuid regla_id PK
+        uuid estancia_id FK
+        uuid geocerca_id FK
+        int version
+        string tipo_umbral
+    }
+    ALERTA {
+        uuid alerta_id PK
+        uuid bovino_id FK
+        uuid regla_id FK
+        uuid lectura_id FK
+        string estado_severidad
+    }
+    TRANSICION_ALERTA {
+        uuid transicion_id PK
+        uuid alerta_id FK
+        uuid actor_id FK
+        string estado_anterior_nuevo
+        datetime ocurrida_en
+    }
+    OBSERVACION {
+        uuid observacion_id PK
+        uuid bovino_id FK
+        uuid alerta_id FK
+        uuid autor_id FK
+        datetime registrada_en
+    }
+    EVIDENCIA {
+        uuid evidencia_id PK
+        uuid observacion_id FK
+        uuid autor_id FK
+        string objeto_uri
+    }
+    INDICACION {
+        uuid indicacion_id PK
+        uuid bovino_id FK
+        uuid alerta_id FK
+        uuid veterinario_id FK
+        datetime indicada_en
+    }
+    SEGUIMIENTO {
+        uuid seguimiento_id PK
+        uuid indicacion_id FK
+        uuid autor_id FK
+        datetime registrado_en
+    }
+    COMANDO_SINCRONIZACION {
+        uuid comando_id PK
+        uuid estancia_id FK
+        uuid cliente_id
+        string estado_resultado
+    }
+
+    ESTANCIA ||--o{ MEMBRESIA : habilita
+    USUARIO ||--o{ MEMBRESIA : participa
+    ESTANCIA ||--o{ LOTE : organiza
+    ESTANCIA ||--o{ BOVINO : posee
+    LOTE o|--o{ BOVINO : agrupa
+    DISPOSITIVO ||--o{ ASOCIACION_DISPOSITIVO : tiene
+    BOVINO ||--o{ ASOCIACION_DISPOSITIVO : usa
+    DISPOSITIVO ||--o{ LECTURA_TELEMETRIA : transmite
+    BOVINO ||--o{ LECTURA_TELEMETRIA : registra
+    ESTANCIA ||--o{ GEOCERCA : delimita
+    LOTE o|--o{ GEOCERCA : aplica_a
+    ESTANCIA ||--o{ REGLA_ALERTA : define
+    GEOCERCA o|--o{ REGLA_ALERTA : condiciona
+    BOVINO ||--o{ ALERTA : presenta
+    REGLA_ALERTA ||--o{ ALERTA : dispara
+    LECTURA_TELEMETRIA o|--o{ ALERTA : causa
+    ALERTA ||--o{ TRANSICION_ALERTA : historiza
+    USUARIO ||--o{ TRANSICION_ALERTA : actua
+    BOVINO ||--o{ OBSERVACION : recibe
+    ALERTA o|--o{ OBSERVACION : motiva
+    USUARIO ||--o{ OBSERVACION : registra
+    OBSERVACION ||--o{ EVIDENCIA : adjunta
+    USUARIO ||--o{ EVIDENCIA : aporta
+    BOVINO ||--o{ INDICACION : recibe
+    ALERTA o|--o{ INDICACION : motiva
+    USUARIO ||--o{ INDICACION : prescribe
+    INDICACION ||--o{ SEGUIMIENTO : tiene
+    USUARIO ||--o{ SEGUIMIENTO : registra
+    ESTANCIA ||--o{ COMANDO_SINCRONIZACION : acepta
