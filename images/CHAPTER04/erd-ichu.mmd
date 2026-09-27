@@ -58,6 +58,7 @@ erDiagram
         uuid dispositivo_id FK
         uuid bovino_id FK
         datetime capturada_en
+        datetime recibida_en
         int secuencia
         json magnitudes_posicion_calidad
     }
@@ -72,15 +73,19 @@ erDiagram
         uuid regla_id PK
         uuid estancia_id FK
         uuid geocerca_id FK
-        int version
+        int version PK
         string tipo_umbral
     }
     ALERTA {
         uuid alerta_id PK
         uuid bovino_id FK
         uuid regla_id FK
+        int version_regla_aplicada FK
         uuid lectura_id FK
+        uuid responsable_id FK
         string estado_severidad
+        datetime creada_en
+        datetime escalada_en
     }
     TRANSICION_ALERTA {
         uuid transicion_id PK
@@ -117,8 +122,8 @@ erDiagram
     }
     COMANDO_SINCRONIZACION {
         uuid comando_id PK
-        uuid estancia_id FK
-        uuid cliente_id
+        uuid estancia_id PK,FK
+        uuid cliente_id PK
         string estado_resultado
     }
 
@@ -138,6 +143,7 @@ erDiagram
     BOVINO ||--o{ ALERTA : presenta
     REGLA_ALERTA ||--o{ ALERTA : dispara
     LECTURA_TELEMETRIA o|--o{ ALERTA : causa
+    USUARIO o|--o{ ALERTA : responsable
     ALERTA ||--o{ TRANSICION_ALERTA : historiza
     USUARIO ||--o{ TRANSICION_ALERTA : actua
     BOVINO ||--o{ OBSERVACION : recibe
