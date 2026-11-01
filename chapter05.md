@@ -317,3 +317,163 @@ Al cierre del **Sprint 1**, el 100% de los Work-Items asignados en el tablero Ji
 +-------------------+-------------------+-------------------+-----------------------+
 
 ```
+
+### 5.3.2 Sprint 2
+
+#### 5.3.2.4 Execution Evidence for Sprint Review
+
+Para la revisión del Sprint 2 de **SmartFarm — ICHU**, se verificó el código disponible de los servicios de catálogo de bovinos y de operaciones y monitoreo. El objetivo de esta revisión es comprobar la recepción de telemetría, la detección de una condición de temperatura elevada y la consulta de la alerta resultante. Estas capacidades apoyan el monitoreo del ganado descrito en los capítulos I a IV.
+
+La comprobación se realizó el **1 de noviembre de 2026** en un entorno local con **.NET SDK 10.0.401**. Se utilizaron datos de demostración, solicitudes HTTP y Swagger UI. Las versiones examinadas son:
+
+| Componente | Repositorio y versión verificada | Alcance de la evidencia |
+|---|---|---|
+| Operations & Monitoring | [cattle-information-service, commit 4cd3e424](https://github.com/Projecto-Fundamentos/cattle-information-service/tree/4cd3e424b790a326b8b7e9781c9bbc3b053ddc98/OperationsMonitoringService) | Ejecución HTTP con EF Core InMemory, documentación Swagger y pruebas automatizadas. |
+| Cattle Service | [SmartFarm.Backend, commit 6d0c811d](https://github.com/Projecto-Fundamentos/SmartFarm.Backend/tree/6d0c811d3caa175d4cc57a6772805094252c63ea/services/CattleService) | Compilación y publicación local de OpenAPI y Swagger. Las operaciones con PostgreSQL no se validaron en esta revisión. |
+
+Estas referencias identifican el código revisado; no establecen por sí solas cuándo se desarrolló cada funcionalidad ni sustituyen el Sprint Backlog. En particular, el README de Operations & Monitoring identifica su implementación como Sprint 1. Aquí se registra su verificación para la revisión del Sprint 2.
+
+**Ejecución de telemetría y alertas.** Se inició Operations & Monitoring en `http://127.0.0.1:5187`, con ambiente `Development` y almacenamiento en memoria. La siguiente matriz resume las diez comprobaciones realizadas contra el proceso en ejecución:
+
+| Evidencia | Operación o escenario | Resultado observado |
+|---|---|---|
+| EX-01 | `GET /health` | `200 OK`, cuerpo `{"status":"Healthy"}`. |
+| EX-02 | `POST /api/v1/telemetry`, temperatura 40.2 °C | `201 Created`; `alertRaised: true`, `alertType: "Fever"` y `duplicate: false`. |
+| EX-03 | Reenviar exactamente la lectura de EX-02 | `200 OK`; conserva `readingId` y `alertId`, devuelve `duplicate: true` y `alertRaised: false`. |
+| EX-04 | Reutilizar dispositivo y fecha de EX-02 con otra temperatura | `409 Conflict`; informa que la clave ya corresponde a otros valores. |
+| EX-05 | Enviar un objeto vacío a telemetría | `400 Bad Request`; devuelve errores de validación en `application/problem+json`. |
+| EX-06 | Enviar una segunda lectura de 40.5 °C una hora después | `201 Created`; registra una lectura nueva y conserva la alerta anterior, con `alertRaised: false`. |
+| EX-07 | Consultar alertas por el `cattleId` del escenario | `200 OK`; una alerta `FEVER`, `readingCount: 2`, máximo 40.5 °C y umbral 39.5 °C. |
+| EX-08 | Consultar alertas con `limit=0` | `400 Bad Request`; el límite permitido es de 1 a 100. |
+| EX-09 | Consultar alertas con `status=INVALID` | `400 Bad Request`; los estados admitidos son `ACTIVE` y `ALL`. |
+| EX-10 | Enviar una lectura de 39.0 °C para otro bovino | `201 Created`; no genera alerta y devuelve `alertId: null`. |
+
+El resultado fue **10 de 10 comprobaciones HTTP satisfactorias**. Las solicitudes, fechas, identificadores, códigos, tipos de contenido y respuestas completas se conservan en [http-evidence.json](./evidencias-sprint2/http-evidence.json). El [manifiesto de ejecución](./evidencias-sprint2/manifest.json) identifica el commit, el SDK y el entorno utilizado.
+
+La lectura de EX-02 usa el siguiente cuerpo real de demostración:
+
+```json
+{
+  "deviceId": "b65ea535-4c25-4d84-b4fa-3698593cc0be",
+  "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+  "bodyTemperature": 40.2,
+  "activityIndex": 12,
+  "ruminationMinutes": 180,
+  "latitude": -13.656,
+  "longitude": -73.388,
+  "recordedAt": "2026-11-01T15:00:23.4221007+00:00",
+  "origin": "EdgeGateway"
+}
+```
+
+Además de la ejecución por script, se realizó una ingesta independiente desde Swagger UI. La captura siguiente muestra su solicitud, la URL local, el código `201` y la respuesta con una alerta nueva. Sus identificadores son distintos de los del script porque corresponden a otra solicitud.
+
+![Ingesta real de telemetría con respuesta 201 en Swagger](./evidencias-sprint2/images/telemetry-201.png)
+
+*Figura E2-1. Ejecución local desde Swagger UI de una lectura de 40.2 °C. Fuente: servicio Operations & Monitoring en ejecución, 01/11/2026.*
+
+Como comprobación adicional, se ejecutó el proyecto `OperationsMonitoringService.Tests`: **9 pruebas superadas, 0 fallidas y 0 omitidas**. El resultado original se conserva en [monitoring.trx](./evidencias-sprint2/tests/monitoring.trx). Estas pruebas usan almacenamiento en memoria y no certifican persistencia en PostgreSQL, concurrencia bajo carga ni funcionamiento integral con los demás servicios.
+
+**Relación con las historias de usuario.** La recepción y conservación de variables biométricas aporta una base para ICHU-US-14 e ICHU-US-20; la generación y consulta de alertas aporta una base para ICHU-US-02 e ICHU-US-08. La evidencia cubre solo estas operaciones del backend. No demuestra todavía la vista clínica, la asociación válida entre collar y bovino, la asignación de responsables, la clasificación por severidad, las notificaciones móviles o la operación offline completa.
+
+#### 5.3.2.5 Microservices Documentation Evidence for Sprint Review
+
+La documentación se obtuvo de los procesos locales y se contrastó con los controladores, DTO y servicios de los commits identificados. Se conservaron las especificaciones generadas sin alterar sus respuestas o rutas. Esta evidencia demuestra la disponibilidad de la documentación actual; no acredita que el desarrollo histórico haya seguido un proceso API First.
+
+| Servicio | Swagger UI local | Especificación conservada |
+|---|---|---|
+| Operations & Monitoring | `http://127.0.0.1:5187/swagger` | [OpenAPI generado de monitoreo](./evidencias-sprint2/openapi-monitoring.generated.json), versión OAS 3.0.4. |
+| Cattle Service | `http://127.0.0.1:5188/swagger` | [OpenAPI generado del catálogo](./evidencias-sprint2/openapi-cattle.generated.json), versión OAS 3.1.1. |
+
+Las direcciones `127.0.0.1` corresponden al equipo donde se ejecuta la aplicación y solo funcionan mientras el proceso está iniciado. Para la revisión sin conexión pueden consultarse los archivos OpenAPI y las capturas adjuntas.
+
+![Swagger de Operations and Monitoring](./evidencias-sprint2/images/swagger-monitoring.png)
+
+*Figura E2-2. Documentación local de telemetría, alertas y comprobación de disponibilidad.*
+
+**Operaciones de Operations & Monitoring.**
+
+| Método y recurso | Entrada | Respuestas y comportamiento |
+|---|---|---|
+| `POST /api/v1/telemetry` | JSON con dispositivo, bovino, temperatura, actividad, coordenadas y fecha de captura. | `201` para lectura nueva; `200` para reintento idéntico; `400` para entrada inválida; `409` si la misma clave se reutiliza con otros valores. |
+| `GET /api/v1/alerts` | `cattleId` opcional; `status` con valor predeterminado `ACTIVE`; `limit` predeterminado 100. | `200` con un arreglo de alertas; `400` si `status` o `limit` son inválidos. Orden descendente por fecha de creación. |
+| `GET /health` | Sin cuerpo. | `200` cuando el proveedor de datos responde; la implementación contempla `503` si la comprobación devuelve indisponibilidad. Solo se verificó `200` en memoria. |
+
+**Datos y validaciones de telemetría.**
+
+| Campo | Tipo y regla implementada |
+|---|---|
+| `deviceId`, `cattleId` | UUID no vacío. La existencia y asociación de los identificadores en otros servicios aún no se comprueba. |
+| `bodyTemperature` | Número decimal entre 30 y 45 °C. |
+| `activityIndex` | Número decimal obligatorio entre 0 y 100. |
+| `latitude`, `longitude` | Números obligatorios: −90 a 90 y −180 a 180, respectivamente. |
+| `recordedAt` | Fecha y hora con desplazamiento ISO 8601; obligatoria y no superior a cinco minutos respecto del futuro del servidor. Se normaliza a UTC. |
+| `ruminationMinutes` | Entero opcional entre 0 y 1440. |
+| `batteryLevel` | Número decimal opcional entre 0 y 100. |
+| `origin` | `DirectFromDevice` o `EdgeGateway`; el valor predeterminado es `DirectFromDevice`. |
+
+La respuesta de ingesta contiene `readingId`, `alertRaised`, `alertId`, `alertType` y `duplicate`. `alertRaised` indica si se abrió una alerta nueva: una lectura adicional puede quedar asociada a una alerta existente y devolver `false`. La respuesta usa `"Fever"` en `alertType`, mientras que la consulta de alertas usa `"FEVER"` en `type`; esta diferencia pertenece al contrato actual.
+
+La clave `(deviceId, recordedAt)` identifica reintentos. La agrupación de alertas utiliza bovino, tipo, estado activo y una ventana de seis horas respecto de la captura de la lectura, tomando como referencia el inicio de la alerta. El umbral configurado es superior a 39.5 °C. Se trata de una regla del prototipo que apoya la detección de anomalías y no constituye un diagnóstico veterinario. El código conserva tanto la hora de captura como la de recepción.
+
+**Operaciones del Cattle Service.** Las siguientes rutas se verificaron en el código y en su documento OpenAPI; no se presentan como transacciones comprobadas contra PostgreSQL en esta revisión.
+
+| Método y recurso | Entrada o filtro principal | Comportamiento definido en el código |
+|---|---|---|
+| `POST /api/v1/ranches` | `name`, obligatorio, hasta 120 caracteres. | Crea estancia; `201` y cabecera `Location`; validación `400`. |
+| `GET /api/v1/ranches` | Sin cuerpo. | Lista hasta 100 estancias. |
+| `GET /api/v1/ranches/{id}` | UUID de estancia. | `200` o `404`; UUID vacío produce `400`. |
+| `POST /api/v1/cattle` | `ranchId`, `earTag` obligatorio hasta 50 caracteres y `lotId` opcional. | `201` y `Location`; `400`, `404` o `409` según validación, existencia y conflicto. |
+| `GET /api/v1/cattle/{id}` | UUID de bovino y consulta `ranchId`. | Consulta dentro de la estancia indicada; `200`, `400` o `404`. |
+| `GET /api/v1/cattle` | `ranchId`, `limit` entre 1 y 100, predeterminado 100. | Lista bovinos de una estancia; contempla `400` y `404`. |
+
+El catálogo mantiene separación entre Domain, Application, Infrastructure e Interface. Las reglas de estancia activa y pertenencia del lote se encuentran en el servicio de aplicación; la persistencia usa EF Core y PostgreSQL, con esquema `cattle`, índice único por estancia y arete, y un campo `version` marcado para concurrencia. La presencia de este campo no demuestra un protocolo HTTP de actualización concurrente: todavía no se exponen operaciones de actualización en estos controladores.
+
+![Swagger del catálogo de bovinos y estancias](./evidencias-sprint2/images/swagger-cattle.png)
+
+*Figura E2-3. OpenAPI y Swagger del Cattle Service disponibles localmente. La disponibilidad de esta interfaz no certifica conexión con PostgreSQL.*
+
+**Seguridad y límites del contrato.** Monitoreo permite la demostración sin autenticación en `Development`; fuera de ese ambiente exige `X-API-Key` en `/api`. Es una protección a nivel de servicio y no implementa permisos por usuario, rol o estancia. El Cattle Service revisado no configura autenticación de usuarios ni políticas de autorización por estancia. Filtrar por `ranchId` no equivale a autorizar el acceso.
+
+La revisión tomó como referencia la [guía de APIs REST de Zalando](https://opensource.zalando.com/restful-api-guidelines/), incluidas las explicaciones y ejemplos sobre contratos, errores, idempotencia y los apéndices sobre paginación y concurrencia. Se registran las siguientes decisiones y pendientes:
+
+| Aspecto | Situación del contrato actual |
+|---|---|
+| Compatibilidad | Se conservan `/api/v1`, `camelCase` y las rutas existentes. Su divergencia con las convenciones de Zalando no justifica cambiar unilateralmente el contrato publicado. |
+| Documentación | Hay OpenAPI exportado; faltan descripciones más completas y algunas restricciones ejecutadas en código, como los valores de `origin` y la fecha máxima futura. |
+| Errores | La validación automática devuelve Problem Details; los conflictos y algunos errores de consulta de monitoreo devuelven `{ "error": "..." }`. Además, el OpenAPI generado no describe fielmente todos esos cuerpos. Debe acordarse y probarse su normalización. |
+| Colecciones | `limit` acota resultados, pero no permite recorrer páginas sucesivas. La paginación completa sigue pendiente. |
+| Reintentos y concurrencia | La secuencia verificada conserva la identidad de la lectura. No se certifican carreras concurrentes ni restricciones relacionales usando InMemory. `Idempotency-Key` y `ETag` son opciones que deben evaluarse según el caso. |
+| Seguridad | Falta completar y documentar permisos por rol y estancia. No se incorporan infraestructura ni cabeceras propietarias de Zalando. |
+
+Los niveles MUST, SHOULD y MAY de Zalando expresan obligaciones, recomendaciones y opciones dentro de esa guía; no todos son requisitos universales de REST. Esta revisión no declara cumplimiento completo. Las mejoras que cambien lo que reciben los consumidores requieren un contrato OpenAPI acordado y pruebas antes de su implementación.
+
+#### 5.3.2.6 Software Deployment Evidence for Sprint Review
+
+El despliegue comprobado para esta revisión es **local y de demostración**. Operations & Monitoring se compiló y ejecutó como proceso ASP.NET Core con .NET 10 y EF Core InMemory. El Cattle Service compiló con **0 errores y 0 advertencias** y sirvió su documentación OpenAPI y Swagger. La evidencia no acredita un despliegue en nube de estos commits.
+
+| Componente | Dirección de revisión | Estado comprobado |
+|---|---|---|
+| Operations & Monitoring | `http://127.0.0.1:5187` | Proceso iniciado; `/health` 200; diez escenarios HTTP y nueve pruebas satisfactorios. |
+| Datos de monitoreo | Proveedor EF Core InMemory | Estado disponible durante la vida del proceso; se pierde al detenerlo. |
+| Documentación del catálogo | `http://127.0.0.1:5188/swagger` | Swagger y `/openapi/v1.json` disponibles. |
+| PostgreSQL del catálogo | Sin instancia habilitada para esta comprobación | El host de documentación se inició con una cadena local de demostración sin servidor de datos. `/health` devolvió 503; no se ejecutó el registro persistente de bovinos. |
+| Entorno de nube | Sin evidencia de release asociada a estos commits | Pendiente de comprobar proveedor, revisión desplegada, migraciones, persistencia y disponibilidad externa. |
+
+La [comprobación del catálogo](./evidencias-sprint2/cattle-health.json) conserva su respuesta 503 y el alcance de la configuración utilizada. La URL y el despliegue de Railway mencionados en el Sprint 1 del informe no se reutilizan como evidencia de este avance sin verificar su correspondencia con el código actual.
+
+**Reproducción del entorno de monitoreo.** Desde una copia del repositorio `cattle-information-service`, con .NET 10 instalado:
+
+```powershell
+dotnet restore OperationsMonitoringService.Tests/OperationsMonitoringService.Tests.csproj
+dotnet test OperationsMonitoringService.Tests/OperationsMonitoringService.Tests.csproj
+$env:ASPNETCORE_ENVIRONMENT = 'Development'
+dotnet run --project OperationsMonitoringService/OperationsMonitoringService.csproj `
+  --no-launch-profile --urls http://127.0.0.1:5187
+```
+
+En otra terminal se consulta `http://127.0.0.1:5187/swagger` o se ejecuta el [script de evidencias](./evidencias-sprint2/collect-evidence.ps1), indicando `-SourceDirectory` con la carpeta del repositorio y `-OutputDirectory` con una carpeta nueva. El script crea sus propios UUID de demostración y comprueba códigos y relaciones entre las respuestas. Los resultados se regeneran en cada ejecución.
+
+**Preparación del despliegue persistente.** El servicio de monitoreo admite PostgreSQL mediante `ConnectionStrings__Monitoring`. Fuera de `Development` también requiere `Security__ApiKey`; ambos valores deben proporcionarse mediante configuración segura del entorno. Su arranque actual utiliza `EnsureCreated`, por lo que aún debe prepararse una estrategia de migraciones versionadas para evolucionar una base existente. El catálogo requiere `ConnectionStrings__CattleDatabase` y cuenta con la migración `InitialCattleSchema` en el repositorio.
+
+Para acreditar el despliegue de nube será necesario conservar el identificador del release y su commit, el resultado de la compilación y las migraciones, la URL HTTPS, una comprobación de salud conectada a PostgreSQL y una lectura posterior al reinicio que demuestre persistencia. La integración con Identity, IoT y notificaciones también deberá verificarse para evaluar el sistema completo. Estos elementos son trabajo pendiente y no se registran como despliegues realizados.
