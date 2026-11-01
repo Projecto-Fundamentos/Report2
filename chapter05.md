@@ -477,3 +477,35 @@ En otra terminal se consulta `http://127.0.0.1:5187/swagger` o se ejecuta el [sc
 **Preparación del despliegue persistente.** El servicio de monitoreo admite PostgreSQL mediante `ConnectionStrings__Monitoring`. Fuera de `Development` también requiere `Security__ApiKey`; ambos valores deben proporcionarse mediante configuración segura del entorno. Su arranque actual utiliza `EnsureCreated`, por lo que aún debe prepararse una estrategia de migraciones versionadas para evolucionar una base existente. El catálogo requiere `ConnectionStrings__CattleDatabase` y cuenta con la migración `InitialCattleSchema` en el repositorio.
 
 Para acreditar el despliegue de nube será necesario conservar el identificador del release y su commit, el resultado de la compilación y las migraciones, la URL HTTPS, una comprobación de salud conectada a PostgreSQL y una lectura posterior al reinicio que demuestre persistencia. La integración con Identity, IoT y notificaciones también deberá verificarse para evaluar el sistema completo. Estos elementos son trabajo pendiente y no se registran como despliegues realizados.
+
+
+#### 5.2.2.7 Team Collaboration Insights during Sprint
+Métricas de participación del equipo registradas en el repositorio durante el Sprint 2:
+
+| Miembro del Equipo        | Rol en el Proyecto          | Commits | Bounded Contexts / Tareas Abordadas                                             |
+| ------------------------- | --------------------------- | ------- | ------------------------------------------------------------------------------- |
+| **Romero Meza Jhimy pool** | Team Leader / Backend Eng.  | 22      | `Cattle Information` (`US-08`, `US-09`), eventos de baja y refactorización ACL. |
+| **Seminario diego** | Backend Engineer            | 26      | `Planning` (`US-26`), `IAM` permisos veterinarios (`US-04`) y Middlewares.      |
+| **Alex Aliaga**  | Fullstack &amp; DevOps Eng.     | 34      | `Operations &amp; Monitoring` (`US-14` Geocercas, `TS-05` Sync Batch) y CI/CD.      |
+| **Romero Meza Jhimy**   | Frontend &amp; UX/UI Eng.       | 21      | WebFrontend Angular (`US-33` vistas de inventario y mapas).                     |
+| **Alex Aliaga**   | Data &amp; IoT Integration Eng. | 19      | `IoT Assets` (`US-11`, `US-12`) y sincronización asíncrona de Edge Gateway.     |
+| **Jhimy Romero Meza**     | Embedded Hardware Eng.      | 15      | Prototipo firmware ESP32 (`TS-02` optimización energética BLE/Wi-Fi).           |
+#### 5.2.2.8 Kanban Board  
+
+Al cierre del **Sprint 2**, el 100% de los 28 Work-Items asignados en el tablero Jira (`SF-201` a `SF-228`) se movieron a la columna **Done**, cumpliendo con la Definición de Terminado (*Definition of Done*) y la cobertura de pruebas de aceptación BDD (56 escenarios aprobados).
+
+```
++-----------------------------------------------------------------------------------+
+|                                JIRA KANBAN BOARD - SPRINT 2                       |
++-------------------+-------------------+-------------------+-----------------------+
+|   TO DO (0)       | IN PROCESS (0)    | TO REVIEW (0)     |       DONE (28)       |
++-------------------+-------------------+-------------------+-----------------------+
+|                   |                   |                   | [x] SF-201 (US-11/12) |
+|                   |                   |                   | [x] SF-202 (US-08/09) |
+|                   |                   |                   | [x] SF-203 (US-14/05) |
+|                   |                   |                   | [x] SF-204 (US-26)    |
+|                   |                   |                   | [x] SF-205 (US-04)    |
+|                   |                   |                   | [x] SF-207 (UI IoT)   |
+|                   |                   |                   | ... (resto de tareas) |
++-------------------+-------------------+-------------------+-----------------------+
+```
