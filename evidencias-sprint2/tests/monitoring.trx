@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="e4ccda11-bb2e-4e97-96e5-6432c9a1cde2" name="aaliaga_ext@NS-5CD552FHHS 2026-11-01 11:58:09" runUser="NS-5CD552FHHS\CodexSandboxOffline" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-11-01T11:58:09.2025216-05:00" queuing="2026-11-01T11:58:09.2025222-05:00" start="2026-11-01T11:57:51.8011725-05:00" finish="2026-11-01T11:58:09.8285004-05:00" />
+  <TestSettings name="default" id="5ca3ca2a-5880-4e7b-952b-3a09fad66f50">
+    <Deployment runDeploymentRoot="aaliaga_ext_NS-5CD552FHHS_2026-11-01_11_58_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="88eec33f-da20-4ba6-b530-6e6ca2942678" testId="da182d93-6fad-57a5-ca5a-06d097866a19" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.HotReadingsWithinSixHoursUpdateSameAlert" computerName="NS-5CD552FHHS" duration="00:00:00.0410282" startTime="2026-11-01T11:58:09.3864330-05:00" endTime="2026-11-01T11:58:09.4270052-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88eec33f-da20-4ba6-b530-6e6ca2942678" />
+    <UnitTestResult executionId="11b01291-29ff-4e18-a9bc-43f6f4409cbb" testId="da030aa1-b72b-d72a-1032-00d86cf2863d" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.HotReadingCreatesOneFeverAlert" computerName="NS-5CD552FHHS" duration="00:00:00.0085280" startTime="2026-11-01T11:58:09.4275524-05:00" endTime="2026-11-01T11:58:09.4358371-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="11b01291-29ff-4e18-a9bc-43f6f4409cbb" />
+    <UnitTestResult executionId="6f61a762-e72e-4fe0-9266-ad3b7c5c7ce7" testId="5712b115-13fc-2515-2b15-74208b9d75c8" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.ReusingTheReadingKeyWithDifferentValuesIsRejected" computerName="NS-5CD552FHHS" duration="00:00:00.0394232" startTime="2026-11-01T11:58:09.3040072-05:00" endTime="2026-11-01T11:58:09.3408247-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f61a762-e72e-4fe0-9266-ad3b7c5c7ce7" />
+    <UnitTestResult executionId="855ec8f3-c514-4888-8705-b7b579a7fed6" testId="689b4f30-ba35-2ffb-cc4b-402984657189" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.RetriedReadingReturnsOriginalResultWithoutDuplicate" computerName="NS-5CD552FHHS" duration="00:00:00.0375090" startTime="2026-11-01T11:58:09.3419819-05:00" endTime="2026-11-01T11:58:09.3786187-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="855ec8f3-c514-4888-8705-b7b579a7fed6" />
+    <UnitTestResult executionId="8f64709b-1ac7-417e-b2c2-8934f9c74ad2" testId="eeb09f98-6a38-980d-4239-083fef87da65" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.MissingDeviceAndTimestampFailValidation" computerName="NS-5CD552FHHS" duration="00:00:00.0182160" startTime="2026-11-01T11:58:09.4366860-05:00" endTime="2026-11-01T11:58:09.4551385-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8f64709b-1ac7-417e-b2c2-8934f9c74ad2" />
+    <UnitTestResult executionId="aeb86069-051b-4fa2-b98d-a5f424a6e574" testId="eb8f5362-4ae6-165c-bed4-11ad1a696875" testName="OperationsMonitoringService.Tests.MonitoringApiTests.ApiRejectsInvalidTelemetry" computerName="NS-5CD552FHHS" duration="00:00:03.0373249" startTime="2026-11-01T11:58:06.0339855-05:00" endTime="2026-11-01T11:58:09.0089414-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aeb86069-051b-4fa2-b98d-a5f424a6e574" />
+    <UnitTestResult executionId="71e2ec3d-2b03-43a2-8460-2c5d30c0e019" testId="01026ebb-0e01-95ca-5064-5679e68f0cef" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.NormalReadingCreatesNoAlert" computerName="NS-5CD552FHHS" duration="00:00:00.0068288" startTime="2026-11-01T11:58:09.3793249-05:00" endTime="2026-11-01T11:58:09.3857257-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="71e2ec3d-2b03-43a2-8460-2c5d30c0e019" />
+    <UnitTestResult executionId="0f2acd7b-ecde-4a28-a308-26ff47788bfb" testId="f2a1db2f-8cbe-62ff-e597-ac233789eb6a" testName="OperationsMonitoringService.Tests.TelemetryIngestionTests.HotReadingOutsideSixHourWindowCreatesAnotherAlert" computerName="NS-5CD552FHHS" duration="00:00:03.3437635" startTime="2026-11-01T11:58:06.0284798-05:00" endTime="2026-11-01T11:58:09.3012701-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f2acd7b-ecde-4a28-a308-26ff47788bfb" />
+    <UnitTestResult executionId="419b6d1a-e51c-4977-96f5-c7ac2c74e275" testId="bf9d3a8f-11c0-7b99-f6a5-d19da12c2782" testName="OperationsMonitoringService.Tests.MonitoringApiTests.ApiIngestsTelemetryAndListsTheAlert" computerName="NS-5CD552FHHS" duration="00:00:00.5892976" startTime="2026-11-01T11:58:09.1109880-05:00" endTime="2026-11-01T11:58:09.6039248-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="419b6d1a-e51c-4977-96f5-c7ac2c74e275" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.HotReadingsWithinSixHoursUpdateSameAlert" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="da182d93-6fad-57a5-ca5a-06d097866a19">
+      <Execution id="88eec33f-da20-4ba6-b530-6e6ca2942678" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="HotReadingsWithinSixHoursUpdateSameAlert" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.NormalReadingCreatesNoAlert" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="01026ebb-0e01-95ca-5064-5679e68f0cef">
+      <Execution id="71e2ec3d-2b03-43a2-8460-2c5d30c0e019" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="NormalReadingCreatesNoAlert" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.MissingDeviceAndTimestampFailValidation" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="eeb09f98-6a38-980d-4239-083fef87da65">
+      <Execution id="8f64709b-1ac7-417e-b2c2-8934f9c74ad2" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="MissingDeviceAndTimestampFailValidation" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.RetriedReadingReturnsOriginalResultWithoutDuplicate" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="689b4f30-ba35-2ffb-cc4b-402984657189">
+      <Execution id="855ec8f3-c514-4888-8705-b7b579a7fed6" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="RetriedReadingReturnsOriginalResultWithoutDuplicate" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.MonitoringApiTests.ApiIngestsTelemetryAndListsTheAlert" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="bf9d3a8f-11c0-7b99-f6a5-d19da12c2782">
+      <Execution id="419b6d1a-e51c-4977-96f5-c7ac2c74e275" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.MonitoringApiTests" name="ApiIngestsTelemetryAndListsTheAlert" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.HotReadingOutsideSixHourWindowCreatesAnotherAlert" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="f2a1db2f-8cbe-62ff-e597-ac233789eb6a">
+      <Execution id="0f2acd7b-ecde-4a28-a308-26ff47788bfb" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="HotReadingOutsideSixHourWindowCreatesAnotherAlert" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.ReusingTheReadingKeyWithDifferentValuesIsRejected" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="5712b115-13fc-2515-2b15-74208b9d75c8">
+      <Execution id="6f61a762-e72e-4fe0-9266-ad3b7c5c7ce7" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="ReusingTheReadingKeyWithDifferentValuesIsRejected" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.TelemetryIngestionTests.HotReadingCreatesOneFeverAlert" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="da030aa1-b72b-d72a-1032-00d86cf2863d">
+      <Execution id="11b01291-29ff-4e18-a9bc-43f6f4409cbb" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.TelemetryIngestionTests" name="HotReadingCreatesOneFeverAlert" />
+    </UnitTest>
+    <UnitTest name="OperationsMonitoringService.Tests.MonitoringApiTests.ApiRejectsInvalidTelemetry" storage="c:\users\aaliaga_ext\documents\codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\operationsmonitoringservice.tests\bin\debug\net10.0\operationsmonitoringservice.tests.dll" id="eb8f5362-4ae6-165c-bed4-11ad1a696875">
+      <Execution id="aeb86069-051b-4fa2-b98d-a5f424a6e574" />
+      <TestMethod codeBase="C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService.Tests\bin\Debug\net10.0\OperationsMonitoringService.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner3/netcore/" className="OperationsMonitoringService.Tests.MonitoringApiTests" name="ApiRejectsInvalidTelemetry" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="da182d93-6fad-57a5-ca5a-06d097866a19" executionId="88eec33f-da20-4ba6-b530-6e6ca2942678" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="da030aa1-b72b-d72a-1032-00d86cf2863d" executionId="11b01291-29ff-4e18-a9bc-43f6f4409cbb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5712b115-13fc-2515-2b15-74208b9d75c8" executionId="6f61a762-e72e-4fe0-9266-ad3b7c5c7ce7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="689b4f30-ba35-2ffb-cc4b-402984657189" executionId="855ec8f3-c514-4888-8705-b7b579a7fed6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eeb09f98-6a38-980d-4239-083fef87da65" executionId="8f64709b-1ac7-417e-b2c2-8934f9c74ad2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb8f5362-4ae6-165c-bed4-11ad1a696875" executionId="aeb86069-051b-4fa2-b98d-a5f424a6e574" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="01026ebb-0e01-95ca-5064-5679e68f0cef" executionId="71e2ec3d-2b03-43a2-8460-2c5d30c0e019" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f2a1db2f-8cbe-62ff-e597-ac233789eb6a" executionId="0f2acd7b-ecde-4a28-a308-26ff47788bfb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf9d3a8f-11c0-7b99-f6a5-d19da12c2782" executionId="419b6d1a-e51c-4977-96f5-c7ac2c74e275" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados sin formato de lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="9" executed="9" passed="9" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.01] xUnit.net VSTest Adapter v3.1.4+50e68bbb8b (64-bit .NET 10.0.12)&#xD;
+[xUnit.net 00:00:04.10]   Discovering: OperationsMonitoringService.Tests&#xD;
+[xUnit.net 00:00:04.99]   Discovered:  OperationsMonitoringService.Tests&#xD;
+[xUnit.net 00:00:05.08]   Starting:    OperationsMonitoringService.Tests&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 0 entities to in-memory store.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application started. Press Ctrl+C to shut down.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Hosting environment: Development&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Content root path: C:\Users\aaliaga_ext\Documents\Codex\2026-11-01\https-github-com-projecto-fundamentos-report2\work\cattle-information-service\OperationsMonitoringService&#xD;
+info: Microsoft.EntityFrameworkCore.Update[30100]&#xD;
+      Saved 2 entities to in-memory store.&#xD;
+info: Microsoft.Hosting.Lifetime[0]&#xD;
+      Application is shutting down...&#xD;
+[xUnit.net 00:00:08.84]   Finished:    OperationsMonitoringService.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

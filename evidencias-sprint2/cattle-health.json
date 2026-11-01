@@ -1,0 +1,6 @@
+{
+  "url": "http://127.0.0.1:5188/health",
+  "status": 503,
+  "body": "{\"status\":\"Unhealthy\",\"database\":\"Disconnected\"}",
+  "scope": "Local documentation host with deliberately unconfigured PostgreSQL; not a successful database deployment"
+}

@@ -1,0 +1,14 @@
+{
+  "capturedAt": "2026-11-01T17:00:24.1731982+00:00",
+  "timeZone": "America/Lima",
+  "environment": "Development",
+  "database": "EF Core InMemory; data is lost on process restart",
+  "repository": "https://github.com/Projecto-Fundamentos/cattle-information-service",
+  "commit": "4cd3e424b790a326b8b7e9781c9bbc3b053ddc98",
+  "sdk": "10.0.401",
+  "baseUrl": "http://127.0.0.1:5187",
+  "scenarioCount": 10,
+  "failed": 0,
+  "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+  "deviceId": "b65ea535-4c25-4d84-b4fa-3698593cc0be"
+}
