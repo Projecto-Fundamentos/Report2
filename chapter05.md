@@ -317,8 +317,61 @@ Al cierre del **Sprint 1**, el 100% de los Work-Items asignados en el tablero Ji
 +-------------------+-------------------+-------------------+-----------------------+
 
 ```
-
 ### 5.3.2 Sprint 2
+
+En el segundo sprint de SmartFarm – ICHU, el equipo trabajó sobre tres componentes del backend: identidad y acceso a predios (IAM), catálogo de bovinos (Cattle Information) y monitoreo de telemetría y alertas (Operations & Monitoring). El objetivo de la revisión fue comprobar tres comportamientos: que los permisos se apliquen por predio, que el catálogo exponga su contrato de consulta y que reenviar una lectura de un sensor no duplique la lectura ni la alerta.
+
+Al cierre de la revisión, el cambio de IAM estaba publicado en un pull request con las pruebas aprobadas, las mejoras de Monitoring estaban integradas en la rama principal y el catálogo contaba con evidencia de compilación y documentación de la API. La validación transaccional del catálogo y la prueba de extremo a extremo entre los tres servicios quedaron pendientes.
+
+#### 5.3.2.1 Sprint Backlog 2
+
+* **Objetivo del Sprint 2:** Incorporar IAM al backend grupal y verificar que revocar el acceso a un predio conserve el acceso a los demás. Revisar el contrato de registro y consulta de bovinos y asegurar que el reenvío de telemetría conserve una sola lectura y una sola alerta, incluso después de reiniciar el servicio.
+* **Enlace público al tablero del Sprint 2:** [https://trello.com/b/fiRCOS0k/sprint-2-fundamentos].
+
+| User Story ID | Title | Work-Item ID | Title & Description | Est. (Hrs) | Assigned To | Status |
+|---|---|---|---|---:|---|---|
+| **US-01 / US-02** | Gestión de predios y autenticación | Por vincular | Incorporar el módulo IAM en la rama de integración del backend y presentar el cambio al equipo mediante el PR #4. | 2 | Diego Seminario | **In Review** |
+| **US-01** | Acceso por unidad productiva | Por vincular | Añadir la prueba de dos predios: revocar una membresía y verificar que el mismo usuario recibe 403 al consultar el predio revocado y 200 al consultar el vigente. | 1 | Diego Seminario | **Done** |
+| **US-01 / US-02** | Verificación automática de IAM | Por vincular | Configurar GitHub Actions con Java 21 y ejecutar la suite de IAM con el perfil por defecto y con PostgreSQL 16. | 2 | Diego Seminario | **Done** |
+| **US-06 / US-07** | Registro y consulta de bovinos | Por vincular | Revisar los controladores de registro y consulta por ID del catálogo grupal y contrastar su alcance con el contrato OpenAPI usado en la demostración. | 2 | Equipo de Cattle Information · referente: Jhimy Romero | **Done** (revisión del contrato) |
+| **TS-07** | Validar y persistir telemetría | Por vincular | Validar límites fraccionarios y marcas de tiempo. Al reenviar una captura idéntica, conservar el ID de la lectura. Al reutilizar su clave con datos distintos, devolver 409. | 4 | Alexander Aliaga | **Done** |
+| **TS-09** | Registrar y consultar alertas | Por vincular | Comprobar filtros y paginación, recuperar la alerta después del reinicio y verificar que un reintento no aumente su conteo de lecturas. | 3 | Alexander Aliaga | **Done** |
+
+**Captura del tablero:**  ![trello-sprint2](images/CHAPTER05/trello-sprint2.png)
+
+
+#### 5.3.2.2 Development Evidence for Sprint Review
+
+Los cambios siguientes pertenecen al repositorio del equipo [Projecto-Fundamentos/cattle-information-service](https://github.com/Projecto-Fundamentos/cattle-information-service). Se conserva el formato del Sprint 1. En «Cuerpo del Commit» figura un guion cuando el registro de Git contiene únicamente el mensaje de título.
+
+| Repositorio | Rama | Commit ID | Mensaje de Commit | Cuerpo del Commit | Fecha |
+|---|---|---|---|---|---|
+| cattle-information-service | feature/sprint2-iam-integration | [b2ae9ad](https://github.com/Projecto-Fundamentos/cattle-information-service/commit/b2ae9ad) | Integrate IAM module, run CI from repository root and test ranch-specific revocation | — | 01/11/2026 |
+| cattle-information-service | feat/monitoring-validation-sprint2 | [1f5784e](https://github.com/Projecto-Fundamentos/cattle-information-service/commit/1f5784e) | fix(monitoring): validate fractional bounds and timestamp offsets | — | 01/11/2026 |
+| cattle-information-service | feat/monitoring-validation-sprint2 | [e50d893](https://github.com/Projecto-Fundamentos/cattle-information-service/commit/e50d893) | fix(monitoring): preserve numeric precision and serialize PostgreSQL writes | — | 01/11/2026 |
+| cattle-information-service | feat/monitoring-validation-sprint2 | [4949d0c](https://github.com/Projecto-Fundamentos/cattle-information-service/commit/4949d0c) | fix(monitoring): recover duplicate races and paginate alert queries | — | 01/11/2026 |
+
+**IAM — Diego Seminario.** El módulo desarrollado en el Sprint 1 quedó incorporado a una rama basada en el backend grupal. El incremento de este sprint permite ejecutar su verificación automática desde la raíz del repositorio y comprobar que las membresías de dos predios se pueden revocar de manera independiente. El cambio se presentó al equipo en el [PR #4](https://github.com/Projecto-Fundamentos/cattle-information-service/pull/4).
+
+**Monitoring — Alexander Aliaga.** Los cambios integrados en la rama principal conservan la precisión de las lecturas y permiten recuperar la lectura original cuando llegan dos reintentos idénticos a la vez. También incorporan paginación en la consulta de alertas. [PR #3 integrado](https://github.com/Projecto-Fundamentos/cattle-information-service/pull/3)
+
+**Cattle Information — aporte revisado del equipo.** Jhimy Romero incorporó anteriormente los controladores de registro y consulta por ID. En la revisión del Sprint 2, el equipo documentó la compilación y el contrato OpenAPI de la versión del catálogo alojada en SmartFarm.Backend. El informe identifica por separado la versión usada para esta demostración. [Controladores del repositorio grupal](https://github.com/Projecto-Fundamentos/cattle-information-service/pull/2) · [Evidencia de la versión revisada](https://github.com/Projecto-Fundamentos/Report2/blob/d68f877/evidencias-sprint2/execution-summary.json)
+
+#### 5.3.2.3 Testing Suite Evidence for Sprint Review
+
+| Repositorio | Rama | Commit ID | Mensaje de Commit | Cuerpo del Commit | Fecha |
+|---|---|---|---|---|---|
+| cattle-information-service | feature/sprint2-iam-integration | [b2ae9ad](https://github.com/Projecto-Fundamentos/cattle-information-service/commit/b2ae9ad) | Integrate IAM module, run CI from repository root and test ranch-specific revocation | — | 01/11/2026 |
+| cattle-information-service | feat/monitoring-validation-sprint2 | [9054a4c](https://github.com/Projecto-Fundamentos/cattle-information-service/commit/9054a4c) | test(monitoring): cover HTTP contracts and PostgreSQL persistence races | — | 01/11/2026 |
+
+| Componente | Resultado verificable | Evidencia |
+|---|---|---|
+| IAM | 21 de 21 casos aprobados con el perfil por defecto y los mismos 21 aprobados con PostgreSQL 16. En ambas ejecuciones hubo cero fallos, errores y omisiones. La suite comprende 17 pruebas de API, 3 del adaptador Firebase con proveedor simulado y 1 de migración. | [Registro de GitHub Actions](https://github.com/Projecto-Fundamentos/cattle-information-service/actions/runs/41338482110/job/124943245737) |
+| Operations & Monitoring | 45 de 45 pruebas aprobadas, de las cuales 39 fueron unitarias o HTTP y 6 usaron PostgreSQL. El equipo registró además 14 comprobaciones HTTP sobre el servicio en ejecución, incluida la recuperación de una alerta después de reiniciar. | [Registro de validación](https://github.com/Projecto-Fundamentos/cattle-information-service/blob/9054a4c/OperationsMonitoringService/VALIDATION.md) |
+| Cattle Information | La compilación terminó con 0 errores y 0 advertencias. La documentación respondió HTTP 200. La comprobación de salud respondió 503 porque la revisión se realizó sin aprovisionar la base de datos. Quedó pendiente la prueba transaccional de registrar y recuperar un bovino. | [Resumen de ejecución del equipo](https://github.com/Projecto-Fundamentos/Report2/blob/d68f877/evidencias-sprint2/execution-summary.json) |
+
+**Criterio de aceptación demostrado por IAM.** Dada una propietaria con membresías activas en los predios A y B, al revocar únicamente la membresía de A y consultar ambos predios con el mismo token, la API devuelve 403 para A y 200 para B. La prueba comprueba tanto la denegación del permiso revocado como la continuidad del permiso vigente. [Prueba de revocación selectiva](https://github.com/Projecto-Fundamentos/cattle-information-service/blob/b2ae9ad/ichu-iam-service/src/test/java/com/smartfarm/iam/IdentityApiTest.java#L90-L104)
+
 
 #### 5.3.2.4 Execution Evidence for Sprint Review
 
