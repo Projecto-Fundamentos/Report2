@@ -1,0 +1,235 @@
+[
+  {
+    "id": "EX-01",
+    "executedAt": "2026-11-01T17:00:23.8517186+00:00",
+    "method": "GET",
+    "url": "http://127.0.0.1:5187/health",
+    "request": null,
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "response": {
+      "status": "Healthy"
+    },
+    "rawResponse": "{\"status\":\"Healthy\"}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-02",
+    "executedAt": "2026-11-01T17:00:23.9474505+00:00",
+    "method": "POST",
+    "url": "http://127.0.0.1:5187/api/v1/telemetry",
+    "request": {
+      "deviceId": "b65ea535-4c25-4d84-b4fa-3698593cc0be",
+      "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+      "latitude": -13.656,
+      "longitude": -73.388,
+      "bodyTemperature": 40.2,
+      "ruminationMinutes": 180,
+      "recordedAt": "2026-11-01T15:00:23.4221007+00:00",
+      "activityIndex": 12,
+      "origin": "EdgeGateway"
+    },
+    "expectedStatus": 201,
+    "actualStatus": 201,
+    "response": {
+      "readingId": "9ac93cce-9cd6-4fc5-bcd5-5359aa313536",
+      "alertRaised": true,
+      "alertId": "8f6647da-ce1e-40d0-91e2-f5d9a3acce87",
+      "alertType": "Fever",
+      "duplicate": false
+    },
+    "rawResponse": "{\"readingId\":\"9ac93cce-9cd6-4fc5-bcd5-5359aa313536\",\"alertRaised\":true,\"alertId\":\"8f6647da-ce1e-40d0-91e2-f5d9a3acce87\",\"alertType\":\"Fever\",\"duplicate\":false}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-03",
+    "executedAt": "2026-11-01T17:00:23.9655350+00:00",
+    "method": "POST",
+    "url": "http://127.0.0.1:5187/api/v1/telemetry",
+    "request": {
+      "deviceId": "b65ea535-4c25-4d84-b4fa-3698593cc0be",
+      "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+      "latitude": -13.656,
+      "longitude": -73.388,
+      "bodyTemperature": 40.2,
+      "ruminationMinutes": 180,
+      "recordedAt": "2026-11-01T15:00:23.4221007+00:00",
+      "activityIndex": 12,
+      "origin": "EdgeGateway"
+    },
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "response": {
+      "readingId": "9ac93cce-9cd6-4fc5-bcd5-5359aa313536",
+      "alertRaised": false,
+      "alertId": "8f6647da-ce1e-40d0-91e2-f5d9a3acce87",
+      "alertType": "Fever",
+      "duplicate": true
+    },
+    "rawResponse": "{\"readingId\":\"9ac93cce-9cd6-4fc5-bcd5-5359aa313536\",\"alertRaised\":false,\"alertId\":\"8f6647da-ce1e-40d0-91e2-f5d9a3acce87\",\"alertType\":\"Fever\",\"duplicate\":true}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-04",
+    "executedAt": "2026-11-01T17:00:23.9877239+00:00",
+    "method": "POST",
+    "url": "http://127.0.0.1:5187/api/v1/telemetry",
+    "request": {
+      "deviceId": "b65ea535-4c25-4d84-b4fa-3698593cc0be",
+      "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+      "latitude": -13.656,
+      "longitude": -73.388,
+      "bodyTemperature": 40.5,
+      "ruminationMinutes": 180,
+      "recordedAt": "2026-11-01T15:00:23.4221007+00:00",
+      "activityIndex": 12,
+      "origin": "EdgeGateway"
+    },
+    "expectedStatus": 409,
+    "actualStatus": 409,
+    "response": {
+      "error": "A reading with this deviceId and recordedAt already exists with different values."
+    },
+    "rawResponse": "{\"error\":\"A reading with this deviceId and recordedAt already exists with different values.\"}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-05",
+    "executedAt": "2026-11-01T17:00:24.0066132+00:00",
+    "method": "POST",
+    "url": "http://127.0.0.1:5187/api/v1/telemetry",
+    "request": {},
+    "expectedStatus": 400,
+    "actualStatus": 400,
+    "response": {
+      "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+      "title": "One or more validation errors occurred.",
+      "status": 400,
+      "errors": {
+        "Latitude": [
+          "The Latitude field is required."
+        ],
+        "Longitude": [
+          "The Longitude field is required."
+        ],
+        "ActivityIndex": [
+          "The ActivityIndex field is required."
+        ],
+        "BodyTemperature": [
+          "The field BodyTemperature must be between 30 and 45."
+        ]
+      },
+      "traceId": "00-c05e8ef674693840cbacb2196c1833ba-67fee4e4e3ef4e62-00"
+    },
+    "rawResponse": "{\"type\":\"https://tools.ietf.org/html/rfc9110#section-15.5.1\",\"title\":\"One or more validation errors occurred.\",\"status\":400,\"errors\":{\"Latitude\":[\"The Latitude field is required.\"],\"Longitude\":[\"The Longitude field is required.\"],\"ActivityIndex\":[\"The ActivityIndex field is required.\"],\"BodyTemperature\":[\"The field BodyTemperature must be between 30 and 45.\"]},\"traceId\":\"00-c05e8ef674693840cbacb2196c1833ba-67fee4e4e3ef4e62-00\"}",
+    "contentType": "application/problem+json; charset=utf-8"
+  },
+  {
+    "id": "EX-06",
+    "executedAt": "2026-11-01T17:00:24.0266401+00:00",
+    "method": "POST",
+    "url": "http://127.0.0.1:5187/api/v1/telemetry",
+    "request": {
+      "deviceId": "b65ea535-4c25-4d84-b4fa-3698593cc0be",
+      "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+      "latitude": -13.656,
+      "longitude": -73.388,
+      "bodyTemperature": 40.5,
+      "ruminationMinutes": 180,
+      "recordedAt": "2026-11-01T16:00:23.4221007+00:00",
+      "activityIndex": 12,
+      "origin": "EdgeGateway"
+    },
+    "expectedStatus": 201,
+    "actualStatus": 201,
+    "response": {
+      "readingId": "eb86c362-ab83-4551-8065-c5fd73684d3d",
+      "alertRaised": false,
+      "alertId": "8f6647da-ce1e-40d0-91e2-f5d9a3acce87",
+      "alertType": "Fever",
+      "duplicate": false
+    },
+    "rawResponse": "{\"readingId\":\"eb86c362-ab83-4551-8065-c5fd73684d3d\",\"alertRaised\":false,\"alertId\":\"8f6647da-ce1e-40d0-91e2-f5d9a3acce87\",\"alertType\":\"Fever\",\"duplicate\":false}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-07",
+    "executedAt": "2026-11-01T17:00:24.0425883+00:00",
+    "method": "GET",
+    "url": "http://127.0.0.1:5187/api/v1/alerts?cattleId=1dfc380e-f21e-4bb1-9837-05618dc02e26&status=ACTIVE&limit=10",
+    "request": null,
+    "expectedStatus": 200,
+    "actualStatus": 200,
+    "response": [
+      {
+        "id": "8f6647da-ce1e-40d0-91e2-f5d9a3acce87",
+        "cattleId": "1dfc380e-f21e-4bb1-9837-05618dc02e26",
+        "type": "FEVER",
+        "status": "ACTIVE",
+        "temperature": 40.5,
+        "threshold": 39.5,
+        "readingCount": 2,
+        "startedAtUtc": "2026-11-01T15:00:23.4221007Z",
+        "lastObservedAtUtc": "2026-11-01T16:00:23.4221007Z"
+      }
+    ],
+    "rawResponse": "[{\"id\":\"8f6647da-ce1e-40d0-91e2-f5d9a3acce87\",\"cattleId\":\"1dfc380e-f21e-4bb1-9837-05618dc02e26\",\"type\":\"FEVER\",\"status\":\"ACTIVE\",\"temperature\":40.5,\"threshold\":39.5,\"readingCount\":2,\"startedAtUtc\":\"2026-11-01T15:00:23.4221007Z\",\"lastObservedAtUtc\":\"2026-11-01T16:00:23.4221007Z\"}]",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-08",
+    "executedAt": "2026-11-01T17:00:24.0612048+00:00",
+    "method": "GET",
+    "url": "http://127.0.0.1:5187/api/v1/alerts?limit=0",
+    "request": null,
+    "expectedStatus": 400,
+    "actualStatus": 400,
+    "response": {
+      "error": "limit must be between 1 and 100."
+    },
+    "rawResponse": "{\"error\":\"limit must be between 1 and 100.\"}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-09",
+    "executedAt": "2026-11-01T17:00:24.0683563+00:00",
+    "method": "GET",
+    "url": "http://127.0.0.1:5187/api/v1/alerts?status=INVALID",
+    "request": null,
+    "expectedStatus": 400,
+    "actualStatus": 400,
+    "response": {
+      "error": "status must be ACTIVE or ALL."
+    },
+    "rawResponse": "{\"error\":\"status must be ACTIVE or ALL.\"}",
+    "contentType": "application/json; charset=utf-8"
+  },
+  {
+    "id": "EX-10",
+    "executedAt": "2026-11-01T17:00:24.0814986+00:00",
+    "method": "POST",
+    "url": "http://127.0.0.1:5187/api/v1/telemetry",
+    "request": {
+      "deviceId": "7d81e12c-9068-4ced-9aa6-a9f52fa418a1",
+      "cattleId": "948518aa-fcfe-4211-babe-ead8c53a1aae",
+      "latitude": -13.656,
+      "longitude": -73.388,
+      "bodyTemperature": 39.0,
+      "ruminationMinutes": 180,
+      "recordedAt": "2026-11-01T15:00:23.4221007+00:00",
+      "activityIndex": 12,
+      "origin": "EdgeGateway"
+    },
+    "expectedStatus": 201,
+    "actualStatus": 201,
+    "response": {
+      "readingId": "8d57b932-8c21-4cad-8f85-40f5b1f3fc80",
+      "alertRaised": false,
+      "alertId": null,
+      "alertType": null,
+      "duplicate": false
+    },
+    "rawResponse": "{\"readingId\":\"8d57b932-8c21-4cad-8f85-40f5b1f3fc80\",\"alertRaised\":false,\"alertId\":null,\"alertType\":null,\"duplicate\":false}",
+    "contentType": "application/json; charset=utf-8"
+  }
+]

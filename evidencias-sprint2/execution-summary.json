@@ -1,0 +1,27 @@
+{
+  "reviewDate": "2026-11-01",
+  "timeZone": "America/Lima",
+  "monitoring": {
+    "testPassed": 9,
+    "commit": "4cd3e424b790a326b8b7e9781c9bbc3b053ddc98",
+    "testSkipped": 0,
+    "repository": "Projecto-Fundamentos/cattle-information-service",
+    "httpScenariosPassed": 10,
+    "environment": "Development",
+    "database": "InMemory",
+    "testFailed": 0,
+    "testResults": "tests/monitoring.trx"
+  },
+  "cattle": {
+    "transactionTests": "Not executed",
+    "database": "Not provisioned in this review",
+    "commit": "6d0c811d3caa175d4cc57a6772805094252c63ea",
+    "build": "Succeeded",
+    "warnings": 0,
+    "repository": "Projecto-Fundamentos/SmartFarm.Backend",
+    "errors": 0,
+    "healthHttpStatus": 503,
+    "documentationHttpStatus": 200
+  },
+  "cloudDeployment": "Not verified for either commit"
+}
